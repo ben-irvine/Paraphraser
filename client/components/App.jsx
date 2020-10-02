@@ -1,4 +1,6 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { request } from 'superagent'
 
 class App extends React.Component {
   state = {
@@ -12,7 +14,8 @@ class App extends React.Component {
   }
 
   handleSubmit = () => {
-
+    event.preventDefault()
+    console.log(this.state.text)
   }
 
   render() {
@@ -33,4 +36,10 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapStateToProps = () => {
+  return {
+
+  }
+}
+
+export default connect(mapStateToProps)(App)
