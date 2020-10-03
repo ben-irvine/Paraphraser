@@ -1,10 +1,10 @@
 {
-  "name": "boilerplate-react-webpack",
+  "name": "paraphraser",
   "version": "0.2.2",
-  "description": "A webpack React starter",
-  "repository": "https://github.com/dev-academy-challenges/boilerplate-react-webpack.git",
+  "description": "A simple paraphrasing tool",
+  "repository": "https://github.com/ben-irvine/Paraphraser",
   "main": "server/index.js",
-  "author": "EDA",
+  "author": "Ben Irvine",
   "license": "ISC",
   "scripts": {
     "client": "webpack-dev-server --hot --inline",

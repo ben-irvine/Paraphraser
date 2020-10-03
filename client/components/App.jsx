@@ -17,10 +17,23 @@ class App extends React.Component {
 
   handleSubmit = () => {
     event.preventDefault()
-    this.props.dispatch(addWords(this.state.text))
-    request.get(`https://api.dictionaryapi.dev/api/v2/entries/en/evil`)
+    var words = this.state.text.split(' ')
+    this.props.dispatch(addWords(words))
+    for (var i = 0; i < words.length; i++){
+      this.findSynonyms(words[i])
+    }
+  }
+
+  findSynonyms = (word) => {
+    request.get(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`)
     .then((res) => {
-      console.log(res.body[0].meanings[0].definitions[0].synonyms)
+      var synonyms = res.body[0].meanings[0].definitions[0].synonyms
+      if (synonyms == undefined){
+        synonyms = [word]
+      } else {
+        synonyms.unshift(word)
+      }
+      console.log(synonyms)
     })
   }
 

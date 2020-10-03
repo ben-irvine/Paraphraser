@@ -8,7 +8,7 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_WORDS:
         return {
-          words: action.text
+          words: action.words
         }
     }
 }
