@@ -1,6 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { request } from 'superagent'
+import request from 'superagent'
+
+import {addWords} from '../actions'
 
 class App extends React.Component {
   state = {
@@ -15,7 +17,11 @@ class App extends React.Component {
 
   handleSubmit = () => {
     event.preventDefault()
-    console.log(this.state.text)
+    this.props.dispatch(addWords(this.state.text))
+    request.get(`https://api.dictionaryapi.dev/api/v2/entries/en/evil`)
+    .then((res) => {
+      console.log(res.body[0].meanings[0].definitions[0].synonyms)
+    })
   }
 
   render() {

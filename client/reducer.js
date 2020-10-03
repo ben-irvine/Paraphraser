@@ -1,4 +1,4 @@
-import {ADD_WORDS, addWords} from './actions'
+import {ADD_WORDS} from './actions'
 
 var initialState = {
     words: []
@@ -8,8 +8,7 @@ export const reducer = (state = initialState, action) => {
     switch (action.type) {
       case ADD_WORDS:
         return {
-          ...state,
-          words: [action.text]
+          words: action.text
         }
     }
 }
