@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import request from 'superagent'
 
-import {addWords} from '../actions'
+import {addWords, addSynonyms} from '../actions'
 
 class App extends React.Component {
   state = {
@@ -34,6 +34,7 @@ class App extends React.Component {
         synonyms.unshift(word)
       }
       console.log(synonyms)
+      this.props.dispatch(addSynonyms(synonyms))
     })
   }
 
